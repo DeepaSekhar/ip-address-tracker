@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "projects": {
+    "ip-address-tracker": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/ip-address-tracker",
+      "sourceRoot": "apps/ip-address-tracker/src",
+      "prefix": "ip-address-tracker",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ip-address-tracker",
+            "index": "apps/ip-address-tracker/src/index.html",
+            "main": "apps/ip-address-tracker/src/main.ts",
+            "polyfills": "apps/ip-address-tracker/src/polyfills.ts",
+            "tsConfig": "apps/ip-address-tracker/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/ip-address-tracker/src/favicon.ico",
+              "apps/ip-address-tracker/src/assets"
+            ],
+            "styles": ["apps/ip-address-tracker/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ip-address-tracker/src/environments/environment.ts",
+                  "with": "apps/ip-address-tracker/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ip-address-tracker:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ip-address-tracker:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ip-address-tracker:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ip-address-tracker/tsconfig.app.json",
+              "apps/ip-address-tracker/tsconfig.spec.json",
+              "apps/ip-address-tracker/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/ip-address-tracker/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ip-address-tracker/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ip-address-tracker-e2e": {
+      "root": "apps/ip-address-tracker-e2e",
+      "sourceRoot": "apps/ip-address-tracker-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ip-address-tracker-e2e/cypress.json",
+            "tsConfig": "apps/ip-address-tracker-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ip-address-tracker:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ip-address-tracker:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/ip-address-tracker-e2e/tsconfig.e2e.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ip-address-tracker-e2e/**/*"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "ip-address-tracker"
+}
