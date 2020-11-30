@@ -1,4 +1,13 @@
+.container {
+  position: relative;
+}
+
 .search {
-  background-color: chartreuse;
-  height: 100px;
+  // background-color: chartreuse;
+  height: 75px;
+}
+input {
+  height: 30px;
+  border-radius: 15px;
+  width: 130%;
 }

@@ -1,4 +1,9 @@
-p {
-  background-color: cyan;
-  height: 100px;
+.info {
+  background-color: white;
+  height: 200px;
+  border-radius: 15px;
+}
+.info-head {
+  padding: 15px;
+  font-weight: bold;
 }

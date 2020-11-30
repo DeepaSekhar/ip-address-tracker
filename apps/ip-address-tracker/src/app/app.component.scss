@@ -1,4 +1,28 @@
-//  .dum-component {
-//   background-color: darkolivegreen;
-//   width: 50%;
-// }
+.body,
+html {
+  width: 100%;
+}
+.navbar {
+  position: relative;
+  width: 100%;
+  height: 20%;
+}
+.searchbar {
+  position: absolute;
+  left: 20%;
+  top: 13%;
+  margin: auto;
+  width: 50%;
+}
+.info {
+  position: absolute;
+  width: 85%;
+  margin: 1px;
+  padding: 14px;
+  top: 20%;
+  text-align: center;
+  height: 70px;
+}
+.map {
+  top: 30%;
+}
