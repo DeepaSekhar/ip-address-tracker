@@ -1,13 +1,22 @@
-.container {
-  position: relative;
-}
-
 .search {
   // background-color: chartreuse;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
   height: 75px;
 }
 input {
   height: 30px;
-  border-radius: 15px;
+  border-radius: 15px 0 0 15px;
   width: 130%;
+}
+
+button {
+  background: url('../assets/icons/icon-arrow.svg');
+  background-repeat: no-repeat;
+  height: 50%;
+  width: 14%;
+  background-color: black;
+  background-position: 10px center;
+  border-radius: 0 35% 35% 0;
 }
