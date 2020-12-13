@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ip-address-tracker/ui": ["libs/ui/src/index.ts"]
+      "@ip-address-tracker/ui": ["libs/ui/src/index.ts"],
+      "@ip-address-tracker/interfaces": ["libs/interfaces/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

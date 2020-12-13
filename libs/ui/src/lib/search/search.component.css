@@ -1,10 +1,12 @@
 .search {
-  // background-color: chartreuse;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 80%;
   margin: 0 auto;
   height: 75px;
 }
+
 input {
   height: 52%;
   border-radius: 15px 0 0 15px;
@@ -12,7 +14,7 @@ input {
 }
 
 button {
-  background: url('../assets/icons/icon-arrow.svg');
+  background: url("../assets/icons/icon-arrow.svg");
   background-repeat: no-repeat;
   height: 62%;
   width: 21%;
@@ -21,3 +23,4 @@ button {
   background-position: 16px center;
   border-radius: 0 35% 35% 0;
 }
+/*# sourceMappingURL=search.component.css.map */

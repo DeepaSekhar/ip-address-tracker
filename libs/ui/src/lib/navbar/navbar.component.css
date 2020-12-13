@@ -7,13 +7,14 @@ html {
   background: url('../assets/images/pattern-bg.png');
   height: 36%;
   width: 100%;
-
   color: white;
   text-align: center;
 }
+
 p {
-  padding-top: 23px;
+  padding-top: 17px;
   font-size: 22px;
   font-weight: bold;
   margin: 0;
 }
+/*# sourceMappingURL=navbar.component.css.map */

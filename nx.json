@@ -35,6 +35,9 @@
     },
     "ui": {
       "tags": []
+    },
+    "interfaces": {
+      "tags": []
     }
   }
 }

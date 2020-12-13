@@ -5,13 +5,16 @@
   width: 85%;
   margin: auto;
 }
+
 .main-heading {
   padding: 6px;
   font-size: 9px;
   color: grey;
 }
+
 p {
   font-weight: bold;
   margin: 5px;
   font-size: 21px;
 }
+/*# sourceMappingURL=info.component.css.map */
