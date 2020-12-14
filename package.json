@@ -40,7 +40,8 @@
     "@nrwl/angular": "10.4.4",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
-    "zone.js": "^0.10.2"
+    "zone.js": "^0.10.2",
+    "leaflet": "1.5.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.3",
