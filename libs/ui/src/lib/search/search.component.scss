@@ -6,15 +6,17 @@
   height: 75px;
 }
 input {
-  height: 52%;
+  height: 46%;
+  color: hsl(0, 0%, 17%);
   border-radius: 15px 0 0 15px;
   width: 130%;
+  font-size: 18px;
 }
 
 button {
   background: url('../assets/icons/icon-arrow.svg');
   background-repeat: no-repeat;
-  height: 62%;
+  height: 56%;
   width: 21%;
   border: none;
   background-color: black;

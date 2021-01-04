@@ -1,22 +1,24 @@
 
-<div class="info" *ngIf="trackers$ | async as trackers">
+<div class="info info-style" *ngIf="trackers$ | async as trackers">
+
 <div class="info-head">
    <span class="main-heading"> IP-ADDRESS</span>
-    <p>{{trackers.ip}}</p>
+    <p class="data">{{trackers.ip}}</p>
 </div>
 
 <div class="info-head">
     <span class="main-heading">LOCATION</span>
-    <p>{{trackers.location.city}}</p>
+    <p class="data">{{trackers.location.city}}</p>
 </div>
 
-<div class="info-head">
+<div class="info-head info-style">
     <span class="main-heading">TIMEZONE</span>
-<p>{{trackers.location.timezone}}</p>
+<p class="data">{{trackers.location.timezone}}</p>
 </div>
 
-<div class="info-head">
+<div class="info-head info-style">
   <span class="main-heading">  ISP</span>
-<p>{{trackers.isp}}</p>
+<p class="data">{{trackers.isp}}</p>
 </div>
+
 </div>

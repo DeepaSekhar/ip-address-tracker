@@ -1,17 +1,17 @@
 .info {
   background-color: white;
-  height: 41%;
+  height: 100%;
   border-radius: 15px;
   width: 85%;
   margin: auto;
 }
-.main-heading {
-  padding: 6px;
-  font-size: 9px;
-  color: grey;
+.info-head {
+  padding-top: 22px;
 }
-p {
-  font-weight: bold;
-  margin: 5px;
-  font-size: 21px;
+.main-heading {
+  color: hsl(0, 0%, 59%);
+  font-size: 9px;
+}
+.data {
+  margin: 0;
 }
