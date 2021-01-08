@@ -28,6 +28,11 @@
             "styles": [
               "apps/ip-address-tracker/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "apps/ip-address-tracker/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

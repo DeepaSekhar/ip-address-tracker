@@ -1,14 +1,4 @@
-// .map-container {
-//   background-color: rgba(231, 159, 133, 0.979);
-//   height: 64%;
-// }
-// h1 {
-//   margin-top: 0;s
-// }
-// .map-frame {
-//   //border: 2px solid black;
-//   height: 100%;
-// }
+@import 'breakpoints';
 #map {
   position: relative;
   bottom: 0;
@@ -17,4 +7,7 @@
   height: 64%;
   z-index: -1;
   background-repeat: no-repeat;
+  @include respond-to('small') {
+    height: 79%;
+  }
 }

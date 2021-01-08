@@ -4,6 +4,7 @@ import { Tracker } from '../tracker'
 import { Observable } from 'rxjs';
 import { Location } from '../location'
 
+
 @Component({
   selector: 'ip-address-tracker-info',
   templateUrl: './info.component.html',

@@ -1,15 +1,21 @@
+@import 'breakpoints';
+
 .navbar {
   position: relative;
   width: 100%;
   height: 20%;
+  @include respond-to('small') {
+    height: 12%;
+  }
 }
 .searchbar {
   position: absolute;
-  // left: 20%;
-
   top: 10%;
   margin: auto;
   width: 100%;
+  @include respond-to('small') {
+    top: 8%;
+  }
 }
 .info {
   position: absolute;
@@ -17,6 +23,10 @@
   height: 40%;
   top: 20%;
   text-align: center;
+  @include respond-to('small') {
+    height: 31%;
+    top: 15%;
+  }
 }
 .map {
   width: 100%;
