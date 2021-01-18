@@ -1,8 +1,16 @@
 
-<div class="search">
+<form>
 
+    <div class="search formgroup">
+    <input type="text"
+           id="search"
+           name="search"
+           class="formcontrol"
+           placeholder="enter your ip/domain"
+           [(ngModel)]=searchStr>
+    <button type="submit" (click)="searchMap()"></button>
+</div> 
 
-    <input type="text">
-    <button type="submit"></button>
+</form> 
+ 
 
-</div>
