@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'ip-address-tracker-search',
@@ -6,15 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  @Output() childEvent: EventEmitter<string> = new EventEmitter();
 
-  public searchStr: string;
+
+  searchStr: string;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  searchMap() {
+  searchStringEmt(value: string) {
     console.log(this.searchStr);
+    console.log("value", value)
+    this.childEvent.emit(value);
+
   }
+
 }

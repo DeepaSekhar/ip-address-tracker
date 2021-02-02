@@ -1,59 +1,81 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { TrackerService } from '../tracker.service'
+import { Location, LatLng } from 'libs/ui/src/lib/location';
+import { Observable, Subject } from 'rxjs';
+import { take, takeUntil, skip } from 'rxjs/operators';
 
-
+import { Input } from '@angular/core';
 @Component({
   selector: 'ip-address-tracker-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements AfterViewInit {
+export class MapComponent implements AfterViewInit, OnInit {
 
   private map;
+  private unsubscribe$ = new Subject();
 
+  // @Input() private loccation$: Observable<LatLng>
+  @Input() private loccation$: Observable<LatLng>
 
   constructor(private trackerService: TrackerService) { }
+  ngOnInit() {
 
-  ngAfterViewInit(): void {
-    // this.trackerService.makeMarkers(this.map);
-    this.initMap();
-    this.gettile();
-    this.getMarker();
-    // const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //   maxZoom: 19,
-    //   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    // });
-    // console.log('ngafterviewinit')
-    // tiles.addTo(this.map);
-    // const marker = L.marker([51.5, -0.09])
-    // marker.addTo(this.map)
+    this.loccation$
+      .pipe(
+        skip(1),
+        takeUntil(this.unsubscribe$)
+      )
+
+      .subscribe(res => {
+        console.log("latlng", res);
+        this.flyTo(res)
+        // this.getTile()
+        this.getMarker(res);
+
+      })
+
+
   }
 
 
-  private initMap(): void {
-    // this.map = L.map('map', {
-    //   // center: [39.8282, -98.579],
-    //   center: [10.8505, 76.2711],
+  ngAfterViewInit() {
+    console.log(this.loccation$);
+    this.loccation$
+      .pipe(take(1))
+      .subscribe(res => {
+        this.setMapView(res)
+        this.getTile()
+      })
+  }
 
-    //   zoom: 3
-    // });
-    this.map = L.map('map').setView([51.505, -0.09], 13);
+
+  private setMapView(loccation: LatLng): void {
+    this.map = L.map('map').setView([loccation.lat, loccation.lng], 13);
 
     console.log("initmap")
-
+  }
+  private flyTo(loccation: LatLng): void {
+    this.map.flyTo([loccation.lat, loccation.lng], 13)
+    // =L.map('map').setView([loccation.lat, loccation.lng], 13);
   }
 
-  private gettile(): void {
+  private getTile(): void {
+
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     })
+
     tiles.addTo(this.map);
+
   }
 
-  private getMarker(): void {
-    const marker = L.marker([51.5, -0.09])
+  private getMarker(loccation: LatLng) {
+    // const marker = L.marker([51.5, -0.09])
+    console.log("loccation", loccation);
+    const marker = L.marker([loccation.lat, loccation.lng])
     marker.addTo(this.map)
   }
 

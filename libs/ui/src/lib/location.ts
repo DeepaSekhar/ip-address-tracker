@@ -8,3 +8,8 @@ export interface Location {
     timezone: string;
     geonameId: number;
 }
+export interface LatLng {
+
+    lat: number;
+    lng: number;
+}
