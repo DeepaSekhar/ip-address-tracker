@@ -3,6 +3,7 @@ import { TrackerService } from '../tracker.service'
 import { Tracker } from '../tracker'
 import { Observable } from 'rxjs';
 import { Location } from '../location'
+import { Input } from '@angular/core';
 
 
 @Component({
@@ -12,12 +13,12 @@ import { Location } from '../location'
 })
 export class InfoComponent implements OnInit {
   trackers$: Observable<Tracker>
-
+  @Input() data$: Observable<Tracker>
   constructor(private trackerService: TrackerService) { }
 
   ngOnInit(): void {
-    this.trackers$ = this.trackerService.getTrack()
-    console.log(this.trackers$)
+    // this.trackers$ = this.trackerService.getTrack()
+    // console.log(this.trackers$)
 
 
   }
