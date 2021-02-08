@@ -15,11 +15,12 @@ input {
   width: 62%;
   font-size: 18px;
   @include respond-to('small') {
-    width: 43%;
+    height: 36%;
+    width: 34%;
     font-size: 20px;
   }
   @include respond-to('medium') {
-    height: 62%;
+    height: 54%;
     width: 33%;
     font-size: 27px;
   }
@@ -35,10 +36,11 @@ button {
   background-position: 16px center;
   border-radius: 0 35% 35% 0;
   @include respond-to('small') {
-    width: 7%;
+    width: 5%;
+    height: 46%;
   }
   @include respond-to('medium') {
-    width: 7%;
-    height: 70%;
+    width: 5%;
+    height: 64%;
   }
 }
