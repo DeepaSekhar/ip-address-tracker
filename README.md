@@ -27,7 +27,8 @@ Utilizing IP address from geo loccation Api the user can able to plot map and ma
 3. Make sure that you have Node installed with npm install
 4. Run nx serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 5. Enter an Ip address to the search box If you dont have an ip address copy from [IP-Address] [https://gist.github.com/pbojinov/9732278].
-6. You can now view the map and marker for the loccation you searched
+6. You can now view the map and marker for the loccation you searched.
+7. If you having any trouble loading in Chrome you may need to disable ad blocker.
 
 ## Features of IP Address Tracker
 
@@ -71,4 +72,5 @@ To manage the emitted data from the observable using rxjs operator
 
 ## work in progress
 
-Trying to get the user's loccation on the initial load of the application.
+- Trying to get the user's loccation on the initial load of the application.
+- Error handling with UI message if the API request fails for some reason.
