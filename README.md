@@ -1,98 +1,72 @@
-# IpAddressTracker
+# Ip Address Tracker
 
 This project was generated using [Nx](https://nx.dev).
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
-
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
-
-## Quick Start & Documentation
-
 [Nx Documentation](https://nx.dev/angular)
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+# Aim
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+Aim of the project is about learning and exploring Nx-dev with Rest Api
 
-## Adding capabilities to your workspace
+## Project
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+Utilizing IP address from geo loccation Api the user can able to plot map and mark loccation.
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+- When projects runs it started ploting users loccation.
+  Users can search for loccation they want plot the map for.
 
-Below are our core plugins:
+# Technologies Used
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+- Angular CLI verson 10.2.3
+- Node versin 10.15.3
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+## Instructions
 
-## Generate an application
+1. To get started locally, follow these instructions:
+2. If you haven't done it already, make a fork of this repo.
+   Clone to your local computer using git.
+3. Make sure that you have Node installed with npm install
+4. Run nx serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+5. Enter an Ip address to the search box If you dont have an ip address copy from [IP-Address] [https://gist.github.com/pbojinov/9732278].
+6. You can now view the map and marker for the loccation you searched
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
+## Features of IP Address Tracker
 
-> You can use any of the plugins above to generate applications as well.
+- Get the map of present loccation when it its loaded.
+- Search the loccation using IP address and plot the map
+- Mark exact loccation using marker.
+- Display data about the related Ip address
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+## Tools used
 
-## Generate a library
+Postman to check API response.
+Quicktype to generates models and helper code for reading JSON.
 
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
+# Reference
 
-> You can also use any of the plugins above to generate libraries as well.
+- To get the IP adress from Reference [IP-GeoLoccation-API](https://geo.ipify.org)
+- To generate the map using [LeafletJS](https://leafletjs.com)
 
-Libraries are sharable across libraries and applications. They can be imported from `@ip-address-tracker/mylib`.
+# approch
 
-## Development server
+1. I start reading the documentation and Read Me file from [https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0]
+2. Register for a free account for the /IP Geoloccation API /by IPfy
+3. Read documentation from LeafletJS.
+   I used postman to test API calls and, used quick type to impliment and refactor interface.
 
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+4. Started creating application using angular CLI and Nx-dev
+5. Design the Application as its in the design .styled it using SASS
+6. Then,I passed the Ip adress and ploted the map
+7. I used responsive design for mobile and desktop.
+8. Deployed app using github
 
-## Code scaffolding
+## Check how my app look like
 
-Run `ng g component my-component --project=my-app` to generate a new component.
+[desktop](libs/ui/src/lib/assets/images/desktop.png)
 
-## Build
+# Things struggled with this project
 
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To manage the emitted data from the observable using rxjs operator
 
-## Running unit tests
+# work in progress
 
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+Trying to get the user's loccation on the initial load of the application.

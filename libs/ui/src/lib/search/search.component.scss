@@ -16,6 +16,12 @@ input {
   font-size: 18px;
   @include respond-to('small') {
     width: 43%;
+    font-size: 20px;
+  }
+  @include respond-to('medium') {
+    height: 62%;
+    width: 33%;
+    font-size: 27px;
   }
 }
 
@@ -30,5 +36,9 @@ button {
   border-radius: 0 35% 35% 0;
   @include respond-to('small') {
     width: 7%;
+  }
+  @include respond-to('medium') {
+    width: 7%;
+    height: 70%;
   }
 }

@@ -20,4 +20,12 @@ p {
   font-size: 22px;
   font-weight: bold;
   margin: 0;
+  @include respond-to('small') {
+    padding-top: 10px;
+    font-size: 27px;
+  }
+  @include respond-to('medium') {
+    padding-top: 12px;
+    font-size: 39px;
+  }
 }
