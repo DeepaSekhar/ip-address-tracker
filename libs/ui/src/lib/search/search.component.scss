@@ -20,9 +20,12 @@ input {
     font-size: 20px;
   }
   @include respond-to('medium') {
-    height: 54%;
+    height: 48%;
     width: 33%;
     font-size: 27px;
+  }
+  @include respond-to('large') {
+    width: 25%;
   }
 }
 
@@ -41,6 +44,9 @@ button {
   }
   @include respond-to('medium') {
     width: 5%;
-    height: 64%;
+    height: 57%;
+  }
+  @include respond-to('large') {
+    width: 3%;
   }
 }

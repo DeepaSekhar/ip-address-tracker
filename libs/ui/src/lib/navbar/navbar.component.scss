@@ -28,4 +28,8 @@ p {
     padding-top: 12px;
     font-size: 39px;
   }
+  @include respond-to('large') {
+    padding-top: 12px;
+    font-size: 34px;
+  }
 }
