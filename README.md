@@ -65,10 +65,10 @@ Quicktype to generates models and helper code for reading JSON.
 
 [desktop](libs/ui/src/lib/assets/images/desktop.png)
 
-# Things struggled with this project
+## Things struggled with this project
 
 To manage the emitted data from the observable using rxjs operator
 
-# work in progress
+## work in progress
 
 Trying to get the user's loccation on the initial load of the application.
