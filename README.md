@@ -61,6 +61,8 @@ Quicktype to generates models and helper code for reading JSON.
 
 ## Check how my app look like
 
+[mobile][libs/ui/src/lib/assets/images/mobile.png]
+
 [desktop](libs/ui/src/lib/assets/images/desktop.png)
 
 # Things struggled with this project
