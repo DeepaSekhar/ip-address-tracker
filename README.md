@@ -63,7 +63,7 @@ Quicktype to generates models and helper code for reading JSON.
 
 [mobile][libs/ui/src/lib/assets/images/mobile.png]
 
-[desktop](libs/ui/src/lib/assets/images/desktop.png)
+[desktop][libs/ui/src/lib/assets/images/desktop.png]
 
 # Things struggled with this project
 
