@@ -11,6 +11,9 @@ html {
   width: 100%;
   color: white;
   text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   @include respond-to('small') {
     height: 21%;
   }
