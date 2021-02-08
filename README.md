@@ -31,7 +31,7 @@ Utilizing IP address from geo loccation Api the user can able to plot map and ma
 
 ## Features of IP Address Tracker
 
-- Get the map of present loccation when it its loaded.
+- Get the map of London when it its loaded.
 - Search the loccation using IP address and plot the map
 - Mark exact loccation using marker.
 - Display data about the related Ip address
@@ -61,9 +61,9 @@ Quicktype to generates models and helper code for reading JSON.
 
 ## Check how my app look like
 
-[mobile][libs/ui/src/lib/assets/images/mobile.png]
+[mobile](libs/ui/src/lib/assets/images/mobile.png)
 
-[desktop][libs/ui/src/lib/assets/images/desktop.png]
+[desktop](libs/ui/src/lib/assets/images/desktop.png)
 
 # Things struggled with this project
 
