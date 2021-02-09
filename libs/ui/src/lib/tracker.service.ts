@@ -20,13 +20,15 @@ export class TrackerService {
 
   private dataSubject = new BehaviorSubject<Tracker>(null);
   data$: Observable<Tracker>
-  private locationSubject = new BehaviorSubject<LatLng>({ lat: 51.505, lng: -0.09 });
+  // private locationSubject = new BehaviorSubject<LatLng>({ lat: 51.505, lng: -0.09 });
+  private locationSubject = new ReplaySubject<LatLng>(1);
   location$: Observable<LatLng>
 
   readonly URL = 'https://geo.ipify.org/api/v1?apiKey=at_KjnMsuWTla8gMD1WaVSvnko6EMXaa&ipAddress=8.8.8.8';
   tracker$: Observable<Tracker>
   // loccation$: Observable<Tracker>
   constructor(private http: HttpClient,) {
+
     // whenever subject updates, observable is updated
     this.data$ = this.dataSubject.asObservable()
     this.location$ = this.locationSubject.asObservable()
@@ -34,13 +36,22 @@ export class TrackerService {
     // this.location$ = this.locationSubject.asObservable()
     console.log("loccation from service", this.location$)
 
+    this.location$ = this.locationSubject.asObservable()
 
 
     // this.location$ = this.data$.pipe(
     //   map((data) => { data.location.lat, data.logitude })
 
-
   }
+  getUserGeoLoccation() {
+    navigator.geolocation.getCurrentPosition(res => {
+      console.log("geoloccation", res.coords.longitude, res.coords.latitude)
+      const lat = res.coords.latitude;
+      const lng = res.coords.longitude;
+      this.locationSubject.next({ lat, lng });
+    })
+  }
+
   getTrack() {
 
     this.tracker$ = this.http.get<Tracker>('https://geo.ipify.org/api/v1?apiKey=at_KjnMsuWTla8gMD1WaVSvnko6EMXaa&ipAddress=8.8.8.8')

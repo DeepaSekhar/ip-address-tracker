@@ -15,7 +15,7 @@ export class MapComponent implements AfterViewInit, OnInit {
 
   private map;
   private unsubscribe$ = new Subject();
-
+  private zoom = 13;
   // @Input() private loccation$: Observable<LatLng>
   @Input() private loccation$: Observable<LatLng>
 
@@ -47,25 +47,38 @@ export class MapComponent implements AfterViewInit, OnInit {
       .subscribe(res => {
         this.setMapView(res)
         this.getTile()
+        this.getMarker(res)
       })
   }
 
 
   private setMapView(loccation: LatLng): void {
-    this.map = L.map('map').setView([loccation.lat, loccation.lng], 13);
+    this.map = L.map('map').setView([loccation.lat, loccation.lng], this.zoom);
 
     console.log("initmap")
   }
   private flyTo(loccation: LatLng): void {
-    this.map.flyTo([loccation.lat, loccation.lng], 13)
+    this.map.flyTo([loccation.lat, loccation.lng], this.zoom)
     // =L.map('map').setView([loccation.lat, loccation.lng], 13);
   }
 
   private getTile(): void {
 
-    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    // const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    // maxZoom: 18,
+    // tileSize: 512,
+    // zoomOffset: -1,
+
+    const tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZGVlcGFha2hpbCIsImEiOiJja2t5bHB1OGswNTlhMm9tbGpxOXZ2a3ZlIn0.zA63CvCd0amANa_njPEx3g', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: 'your.mapbox.access.token'
+
+
     })
 
     tiles.addTo(this.map);

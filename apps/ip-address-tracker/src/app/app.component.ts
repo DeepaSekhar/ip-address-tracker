@@ -26,6 +26,7 @@ export class AppComponent {
   constructor(private trackerService: TrackerService) {
     this.data$ = this.trackerService.data$;
     this.location$ = this.trackerService.location$
+    this.trackerService.getUserGeoLoccation();
 
     // this.data$.pipe(
     //   tap((data) => {
