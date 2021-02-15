@@ -8,7 +8,9 @@
            class="formcontrol"
            placeholder="enter your Ip "
            [(ngModel)]=searchStr>
-    <button type="submit" (click)="searchStringEmt(searchStr)"></button>
+    <button type="submit"[hidden]="isLoading.isLoading" (click)="searchStringEmt(searchStr)"></button>
+    <span class="loader" *ngIf="isLoading.isLoading"></span>
+
 </div> 
 
 </form> 

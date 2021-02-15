@@ -19,13 +19,15 @@ export class MapComponent implements AfterViewInit, OnInit {
   // @Input() private loccation$: Observable<LatLng>
   @Input() private loccation$: Observable<LatLng>
 
+
   constructor(private trackerService: TrackerService) { }
   ngOnInit() {
 
     this.loccation$
       .pipe(
         skip(1),
-        takeUntil(this.unsubscribe$)
+        takeUntil(this.unsubscribe$),
+
       )
 
       .subscribe(res => {
@@ -53,7 +55,8 @@ export class MapComponent implements AfterViewInit, OnInit {
 
 
   private setMapView(loccation: LatLng): void {
-    this.map = L.map('map').setView([loccation.lat, loccation.lng], this.zoom);
+    this.map = L.map('map', { zoomControl: false }).setView([loccation.lat, loccation.lng], this.zoom);
+
 
     console.log("initmap")
   }

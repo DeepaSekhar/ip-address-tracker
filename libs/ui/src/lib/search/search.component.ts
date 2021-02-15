@@ -1,4 +1,6 @@
+import { AfterViewInit } from '@angular/core';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Loader } from '../loader';
 
 
 @Component({
@@ -6,21 +8,28 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements AfterViewInit, OnInit {
   @Output() childEvent: EventEmitter<string> = new EventEmitter();
-
-
   searchStr: string;
-
-  constructor() { }
-
-  ngOnInit(): void {
+  @Input() isLoading: Loader
+  constructor() {
+    console.log("isLoading", this.isLoading);
   }
+  ngOnInit(): void {
+    console.log("isLoading ngoninIt", this.isLoading);
+  }
+  ngAfterViewInit(): void {
+    console.log("isLoading ng After viewinit", this.isLoading);
+  }
+
+
+
 
   searchStringEmt(value: string) {
     console.log(this.searchStr);
     console.log("value", value)
     this.childEvent.emit(value);
+
 
   }
 

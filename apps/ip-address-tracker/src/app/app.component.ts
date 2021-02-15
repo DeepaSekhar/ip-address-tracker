@@ -3,6 +3,7 @@ import { Tracker } from 'libs/ui/src/lib/tracker';
 import { TrackerService } from 'libs/ui/src/lib/tracker.service';
 import { Observable } from 'rxjs';
 import { Location, LatLng } from 'libs/ui/src/lib/location';
+import { Loader } from 'libs/ui/src/lib/loader'
 
 @Component({
   selector: 'ip-address-tracker-root',
@@ -12,6 +13,7 @@ import { Location, LatLng } from 'libs/ui/src/lib/location';
 export class AppComponent {
   trackers$: Observable<Tracker>
   data$: Observable<Tracker>
+  public loader$: Observable<Loader>
   public location$: Observable<LatLng>
 
   //  location$: Observable<Location>();
@@ -27,6 +29,7 @@ export class AppComponent {
     this.data$ = this.trackerService.data$;
     this.location$ = this.trackerService.location$
     this.trackerService.getUserGeoLoccation();
+    this.loader$ = this.trackerService.loader$
 
     // this.data$.pipe(
     //   tap((data) => {
