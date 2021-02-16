@@ -11,9 +11,11 @@ import { Loader } from '../loader';
 export class SearchComponent implements AfterViewInit, OnInit {
   @Output() childEvent: EventEmitter<string> = new EventEmitter();
   searchStr: string;
+
   @Input() isLoading: Loader
+
   constructor() {
-    console.log("isLoading", this.isLoading);
+
   }
   ngOnInit(): void {
     console.log("isLoading ngoninIt", this.isLoading);
@@ -32,5 +34,6 @@ export class SearchComponent implements AfterViewInit, OnInit {
 
 
   }
+
 
 }

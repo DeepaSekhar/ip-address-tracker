@@ -5,8 +5,18 @@ import { Location } from './location'
 export interface Tracker {
     ip: string;
     location: Location;
-    domains: string[];
-    as: Asn;
-    isp: string;
-    proxy: Proxy;
+    isp?: string;
+    timezone?: string;
+
+
 }
+
+
+// export interface Tracker {
+//     ip: string;
+//     location: Location;
+//     domains: string[];
+//     as: Asn;
+//     isp: string;
+//     proxy: Proxy;
+// }

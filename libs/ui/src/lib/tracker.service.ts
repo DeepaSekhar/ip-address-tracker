@@ -64,10 +64,10 @@ export class TrackerService {
   getUserLoccationData() {
     console.log("the geo loccation function being called before")
     this.http.get<UserData>(`https://geolocation-db.com/json/09068b10-55fe-11eb-8939-299a0c3ab5e5`)
-      // console.log("geoloccation data", this.userData$);
+
       .subscribe(res => {
         console.log("geoloccation user", res)
-        this.geoloccationSubject.next(res);
+        this.dataSubject.next({ location: { city: res.city }, ip: res.IPv4, timezone: res.country_code, isp: res.country_name });
       })
     console.log("the geo loccation function being called")
   }

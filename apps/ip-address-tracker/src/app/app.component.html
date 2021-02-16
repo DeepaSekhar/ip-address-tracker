@@ -2,7 +2,7 @@
 <ip-address-tracker-navbar class="navbar"></ip-address-tracker-navbar>
 <ip-address-tracker-search (childEvent)="searchIp($event)"class="searchbar"[isLoading]="loader$|async"></ip-address-tracker-search>
 <ip-address-tracker-info class="info"[data$]="data$"></ip-address-tracker-info>
-<ip-address-tracker-geoloccation class="info"[userData$]="userData$"></ip-address-tracker-geoloccation>
+<ip-address-tracker-geoloccation class="info"[userData$]="userData$"[isLoading]="loader$|async"></ip-address-tracker-geoloccation>
 <ip-address-tracker-map class="map" [loccation$]="location$"></ip-address-tracker-map>
 
 <!-- <ip-address-tracker-map class="map" [loccation]="location$ | async"></ip-address-tracker-map> -->
