@@ -1,0 +1,24 @@
+<p class="p">user geo loccation</p>
+<div class="info info-style" *ngIf="userData$ | async as data">
+
+    <div class="info-head">
+       <span class="main-heading"> IP-ADDRESS</span>
+        <p class="data">{{data.IPv4}}</p>
+    </div>
+    
+    <div class="info-head">
+        <span class="main-heading">LOCATION</span>
+        <p class="data">{{data.city}}</p>
+    </div>
+    
+    <!-- <div class="info-head info-style">
+        <span class="main-heading">TIMEZONE</span>
+    <p class="data">{{trackers.location.timezone}}</p>
+    </div>
+    
+    <div class="info-head info-style">
+      <span class="main-heading">  ISP</span>
+    <p class="data">{{trackers.isp}}</p>
+    </div> -->
+    
+    </div>

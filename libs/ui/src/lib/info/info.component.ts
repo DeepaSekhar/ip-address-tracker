@@ -17,8 +17,6 @@ export class InfoComponent implements OnInit {
   constructor(private trackerService: TrackerService) { }
 
   ngOnInit(): void {
-    // this.trackers$ = this.trackerService.getTrack()
-    // console.log(this.trackers$)
 
 
   }

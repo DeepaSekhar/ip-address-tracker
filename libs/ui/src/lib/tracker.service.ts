@@ -8,7 +8,7 @@ import * as L from 'leaflet';
 import { Subject } from 'rxjs/internal/Subject';
 import { tap, map } from 'rxjs/operators';
 import { Loader } from './loader'
-
+import { UserData } from './userData'
 
 
 @Injectable({
@@ -26,8 +26,10 @@ export class TrackerService {
   location$: Observable<LatLng>
   loader$: Observable<Loader>
   tracker$: Observable<Tracker>
+  userData$: Observable<UserData>
   private loaderSubject = new BehaviorSubject<Loader>({ isLoading: false })
   private locationSubject = new ReplaySubject<LatLng>(1);
+  private geoloccationSubject = new Subject<UserData>();
   readonly URL = 'https://geo.ipify.org/api/v1?apiKey=at_KjnMsuWTla8gMD1WaVSvnko6EMXaa&ipAddress=8.8.8.8';
 
 
@@ -37,7 +39,7 @@ export class TrackerService {
     this.data$ = this.dataSubject.asObservable()
     this.location$ = this.locationSubject.asObservable()
     this.loader$ = this.loaderSubject.asObservable()
-
+    this.userData$ = this.geoloccationSubject.asObservable()
     //! IF USING SUBJECT
     // this.location$ = this.locationSubject.asObservable()
     console.log("loccation from service", this.location$)
@@ -51,7 +53,7 @@ export class TrackerService {
   }
   getUserGeoLoccation() {
     navigator.geolocation.getCurrentPosition(res => {
-      console.log("geoloccation", res.coords.longitude, res.coords.latitude)
+      console.log("geoloccation", res)
       const lat = res.coords.latitude;
       const lng = res.coords.longitude;
       this.locationSubject.next({ lat, lng });
@@ -59,9 +61,21 @@ export class TrackerService {
     })
   }
 
+  getUserLoccationData() {
+    console.log("the geo loccation function being called before")
+    this.http.get<UserData>(`https://geolocation-db.com/json/09068b10-55fe-11eb-8939-299a0c3ab5e5`)
+      // console.log("geoloccation data", this.userData$);
+      .subscribe(res => {
+        console.log("geoloccation user", res)
+        this.geoloccationSubject.next(res);
+      })
+    console.log("the geo loccation function being called")
+  }
+
+
   getTrack() {
 
-    this.tracker$ = this.http.get<Tracker>('https://geo.ipify.org/api/v1?apiKey=at_KjnMsuWTla8gMD1WaVSvnko6EMXaa&ipAddress=8.8.8.8')
+    this.http.get<Tracker>(`https://geo.ipify.org/api/v1?apiKey=at_KjnMsuWTla8gMD1WaVSvnko6EMXaa&ipAddress=8.8.8.8`)
     console.log("tracking result", this.tracker$);
     return this.tracker$
 
