@@ -18,13 +18,6 @@ export class AppComponent {
   public location$: Observable<LatLng>
   public userData$: Observable<UserData>
 
-  //  location$: Observable<Location>();
-  //  locationInfo$: Observable<LocationInfo>()
-
-  //create two variables for the related observable
-  //use the constructor and assign the value
-
-
 
   // dataFromSearch: string;
   constructor(private trackerService: TrackerService) {
@@ -36,12 +29,7 @@ export class AppComponent {
     this.userData$ = this.trackerService.userData$
 
 
-    // this.data$.pipe(
-    //   tap((data) => {
-    //     this.location$ = { data.latitude, data.longitude };
-    //     this.locationInfo$ = { data}
-    //   })
-    // )
+
   }
 
   //sending ip value to sevice which received from search
@@ -51,9 +39,6 @@ export class AppComponent {
     this.trackerService.getMapIp(inputVal);
 
   }
-  // getDataFromIp() {
-  //   this.trackers$ = this.trackerService.getMapIp();
-  // }
 
 }
 

@@ -6,7 +6,7 @@
            id="search"
            name="search"
            class="formcontrol"
-           placeholder="enter your Ip "
+           placeholder="Enter your IP "
            [(ngModel)]=searchStr>
     <button type="submit"[hidden]="isLoading.isLoading" (click)="searchStringEmt(searchStr)"></button>
     <span class="loader" *ngIf="isLoading.isLoading"></span>
