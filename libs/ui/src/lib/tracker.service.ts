@@ -5,7 +5,7 @@ import { LatLng, Location } from './location'
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import * as L from 'leaflet';
-import { Subject } from 'rxjs/internal/Subject';
+import { Subject } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { Loader } from './loader'
 import { UserData } from './userData'
