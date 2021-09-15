@@ -11,10 +11,11 @@ input {
   height: 52%;
   border-radius: 15px 0 0 15px;
   width: 130%;
+  text-align: centre;
 }
 
 button {
-  background: url("../assets/icons/icon-arrow.svg");
+  background: url('../assets/icons/icon-arrow.svg');
   background-repeat: no-repeat;
   height: 62%;
   width: 21%;
